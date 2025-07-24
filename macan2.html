@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macan - Концерты</title>
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DCDCDC;
+            color: #333;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #1a1a1a;
+            border-bottom: 2px solid #191970;
+            padding-bottom: 10px;
+        }
+        .concert {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .concert-info {
+            flex: 1;
+            min-width: 250px;
+        }
+        .concert-date {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+        .concert-city {
+            font-size: 1.5em;
+            margin: 5px 0;
+            color: #191970;
+        }
+        .concert-venue {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        .concert-time {
+            margin: 5px 0;
+        }
+        .buy-btn {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .buy-btn:hover {
+            background-color: #b71c1c;
+        }
+        .concert-image {
+            flex: 0 0 200px;
+            margin-left: 20px;
+        }
+        .concert-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        .no-concerts {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+        }
+        @media (max-width: 768px) {
+            .concert {
+                flex-direction: column;
+            }
+            .concert-image {
+                margin-left: 0;
+                margin-top: 15px;
+                flex: 0 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MACAN</h1>
+            <p>Расписание концертов 2025</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Ближайшие концерты</h2>
+        
+        <div class="concert">
+            <div class="concert-info">
+                <div class="concert-date">9 августа</div>
+                <div class="concert-city">Москва</div>
+                <div class="concert-venue">ВТБ - АРЕНА</div>
+                <button class="buy-btn">Купить билет</button>
+            </div>
+        </div>
+
+        <div class="concert">
+            <div class="concert-info">
+                <div class="concert-date">16 августа</div>
+                <div class="concert-city">Санкт-Петербург</div>
+                <div class="concert-venue">СКА АРЕНА</div>
+                <button class="buy-btn">Купить билет</button>
+            </div>
+        </div>
+
+        <div class="concert">
+            <div class="concert-info">
+                <div class="concert-date">27 августа</div>
+                <div class="concert-city">Якутск</div>
+                <div class="concert-venue">СК ТРИУМФ</div>
+                <button class="buy-btn">Купить билет</button>
+</div>
+        </div>
+
+        <div class="concert">
+            <div class="concert-info">
+                <div class="concert-date">3 сентября</div>
+                <div class="concert-city">Уфа</div>
+                <div class="concert-venue">УФА-АРЕНА</div>
+                <button class="buy-btn">Купить билет</button>
+            </div>
+        </div>
+
+        <div class="concert">
+            <div class="concert-info">
+                <div class="concert-date">20 сентября</div>
+                <div class="concert-city">Казань</div>
+                <div class="concert-venue">ТАТНЕФТЬ АРЕНА</div>
+                <button class="buy-btn">Купить билет</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Macan.</p>
+            <p>Официальные страницы: 
+                <a href="https://vk.com/amacan" style="color: #fff;">VK</a> |  
+                <a href="https://youtube.com/channel/UCV0KDpkCCF44lcF7mg9hltw?si=m99ETF0sKW36SWRv" style="color: #fff;">YouTube</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
